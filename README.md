@@ -5,7 +5,7 @@
 
 
 
-#使用@Valid验证没有生效：
+# 使用@Valid验证没有生效：
 - 1.如果是springboot项目那么可以不需要导入@Valid相关依赖，其依赖都已经集成到了 spring-boot-starter-web 中
     * springboot2.3.0以下的不需要引入@valid对应依赖，
     * 2.3.0版本以上需要引入，不然@Valid和@Validated都导进来
