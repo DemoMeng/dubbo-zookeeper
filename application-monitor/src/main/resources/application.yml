@@ -1,0 +1,49 @@
+spring:
+  profiles:
+    active: test
+
+
+---
+
+
+server:
+  port: 9999
+spring:
+  profiles: test
+  security:
+    user:
+      name: mqz
+      password: mqz
+
+  main:
+    allow-bean-definition-overriding: true
+mqz:
+  notify:
+    email:
+      protocol: smtp
+      auth: true
+      from:
+        userName: 977466992@qq.com
+        password: xxxxxx
+        host: smtp.qq.com
+      to: xxxxxx
+#  resources:
+#    static-locations: classpath:static/,file:static/
+#  thymeleaf:
+#    cache: true
+---
+server:
+  port: 20001
+spring:
+  profiles: prod
+  security:
+    user:
+      name: mqz
+      password: mqz
+  main:
+    allow-bean-definition-overriding: true
+#  resources:
+#    static-locations: classpath:static/,file:static/
+#    thymeleaf:
+#      cache: true
+

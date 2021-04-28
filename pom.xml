@@ -5,24 +5,88 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.5.RELEASE</version>
+        <version>2.1.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.mqz.rpc</groupId>
     <artifactId>dubbo-zookeeper</artifactId>
     <version>0.0.1</version>
     <name>dubbo-zookeeper</name>
+    <packaging>pom</packaging>
     <description>rpc power by mqz</description>
+
+    <modules>
+        <module>api</module>
+        <module>service-provider</module>
+        <module>web-consumer</module>
+    </modules>
+
     <properties>
         <java.version>1.8</java.version>
+        <admin.version>2.1.0</admin.version>
+        <admin.ui.version>2.0.2</admin.ui.version>
     </properties>
     <dependencies>
+
+        <!-- 公共基础依赖 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <groupId>com.mqz.mars.base</groupId>
+            <artifactId>mars-base</artifactId>
+            <version>0.0.1</version>
         </dependency>
 
+
+        <!-- dubbo spring boot 依赖 -->
         <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>2.7.8</version>
+        </dependency>
+
+        <!-- zookeeper 注册中心依赖 -->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.5.6</version>
+            <!-- 排除相关日志依赖 - 和dubbo-spring-boot-starter引入的log4j冲突了 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <!-- dubbo+zookeeper需要 -->
+        <!--  java.lang.NoClassDefFoundError: org/apache/curator/RetryPolicy 依赖 -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
+        <!-- dubbo+zookeeper需要 -->
+        <!-- org/apache/curator/framework/recipes/cache/TreeCacheListener 依赖 -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId><!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -32,16 +96,38 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>-->
         </dependency>
+
+
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <!-- maven环境配置区分 -->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <projectActive>dev</projectActive>
+                <zookeeperUrl>127.0.0.1:2181</zookeeperUrl>
+                <javaHome>/usr/local/java</javaHome>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <projectActive>test</projectActive>
+                <zookeeperUrl>192.168.2.11:2181</zookeeperUrl>
+                <javaHome>/usr/local/java</javaHome>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <projectActive>prod</projectActive>
+                <zookeeperUrl>mqz.mengqizhang.xyz:2181</zookeeperUrl>
+                <javaHome>/usr/local/java</javaHome>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

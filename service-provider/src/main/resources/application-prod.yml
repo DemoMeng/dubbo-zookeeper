@@ -1,0 +1,33 @@
+server:
+  port: 2000
+dubbo:
+  application:
+    #name: service-provider
+    id: service-provider
+  registry:
+    address: @zookeeperUrl@
+    # 读者请换成自己的zookeeperip
+    protocol: zookeeper
+    check: false
+  monitor:
+    protocol: register
+  consumer:
+    check:  false
+    timeout: 3000
+  protocol:
+    name: dubbo # java.lang.IllegalStateException: Invalid name="org.apache.dubbo.config.ApplicationConfig#0" contains illegal character, only digit, letter, '-', '_' or '.' is legal.
+  scan:
+    base-packages: com.mqz.provider
+
+
+spring:
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:9999/
+        username: mqz
+        password: mqz
+        instance:
+          prefer-ip: true
+  #          service-url: http://47.105.160.119:5051
+  #          name: fxq-file

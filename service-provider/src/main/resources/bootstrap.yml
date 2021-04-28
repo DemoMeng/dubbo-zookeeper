@@ -1,0 +1,4 @@
+#bootstarp加载是在父级 SpringApplicationContext，在application加载之前加载的
+spring:
+  profiles:
+    active: @projectActive@
