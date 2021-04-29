@@ -1,8 +1,10 @@
 package com.mqz.consumer.web.controller;
 
 import com.mqz.api.service.system.MQZUserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/hello")
+@Api(tags = "哈咯沃德")
+@Slf4j
 public class HelloController {
 
     @DubboReference(version = "0.1")
@@ -26,12 +30,16 @@ public class HelloController {
     private MQZUserService mqzUserService2;
 
     @GetMapping(value = "/index")
+    @ApiOperation(value = "方法1")
     public Object index(){
+        log.info("方法1调用了。。。。。");
         return mqzUserService.list();
     }
 
     @GetMapping(value = "/index2")
+    @ApiOperation(value = "方法2")
     public Object index2(){
+        log.info("方法2调用了。。。。。");
         return mqzUserService2.list();
     }
 

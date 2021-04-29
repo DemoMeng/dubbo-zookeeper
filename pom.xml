@@ -28,13 +28,20 @@
     </properties>
     <dependencies>
 
+        <!-- 公共swagger依赖 -->
+        <dependency>
+            <groupId>com.mqz.mars.swagger</groupId>
+            <artifactId>mars-swagger</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+
         <!-- 公共基础依赖 -->
         <dependency>
             <groupId>com.mqz.mars.base</groupId>
             <artifactId>mars-base</artifactId>
             <version>0.0.1</version>
         </dependency>
-
 
         <!-- dubbo spring boot 依赖 -->
         <dependency>
@@ -124,7 +131,7 @@
             <id>prod</id>
             <properties>
                 <projectActive>prod</projectActive>
-                <zookeeperUrl>mqz.mengqizhang.xyz:2181</zookeeperUrl>
+                <zookeeperUrl>192.168.2.11:2181</zookeeperUrl>
                 <javaHome>/usr/local/java</javaHome>
             </properties>
         </profile>

@@ -8,7 +8,6 @@ dubbo:
     id: web-consumer
   registry:
     address: @zookeeperUrl@
-    # 读者请换成自己的zookeeperip
     protocol: zookeeper
     check: false
   monitor:
@@ -19,14 +18,31 @@ dubbo:
   protocol:
     name: dubbo # java.lang.IllegalStateException: Invalid name="org.apache.dubbo.config.ApplicationConfig#0" contains illegal character, only digit, letter, '-', '_' or '.' is legal.
 
+swagger:
+  enable: false
+
 spring:
   boot:
     admin:
       client:
-        url: http://127.0.0.1:9999/
-        username: mqz
-        password: mqz
+        url: http://localhost:9999
         instance:
           prefer-ip: true
-  #          service-url: http://47.105.160.119:5051
-  #          name: fxq-file
+          #service-url: http://localhost:9999
+        #username: "mqz"
+        #password: "mqz"
+#  security:
+#    user:
+#      name: "mqz"
+#      password: "mqz"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    logfile:
+      external-file: ./logs/web/info/info.log # springbootadmin logfile显示日志的日志文件
+

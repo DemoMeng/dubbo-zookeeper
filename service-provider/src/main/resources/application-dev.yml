@@ -17,16 +17,3 @@ dubbo:
     timeout: 3000
   protocol:
     name: dubbo # java.lang.IllegalStateException: Invalid name="org.apache.dubbo.config.ApplicationConfig#0" contains illegal character, only digit, letter, '-', '_' or '.' is legal.
-
-
-spring:
-  boot:
-    admin:
-      client:
-        url: http://127.0.0.1:9999/
-        username: mqz
-        password: mqz
-        instance:
-          prefer-ip: true
-  #          service-url: http://47.105.160.119:5051
-  #          name: fxq-file

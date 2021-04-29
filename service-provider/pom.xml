@@ -125,8 +125,6 @@
                     <include>bootstrap.yml</include>
                     <include>application-${projectActive}.yml</include>
                     <include>logback/logback-${projectActive}.xml</include>
-                    <include>dubbo/dubbo-provider-${projectActive}.properties</include>
-                    <include>dubbo/dubbo-consumer-${projectActive}.properties</include>
                 </includes>
             </resource>
         </resources>

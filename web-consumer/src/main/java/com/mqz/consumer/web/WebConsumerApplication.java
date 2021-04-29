@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {"com.mqz.consumer.web"})
-
 public class WebConsumerApplication {
 
     public static void main(String[] args) {
