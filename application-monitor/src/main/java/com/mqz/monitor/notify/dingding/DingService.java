@@ -17,11 +17,13 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author mqz
- * @description
- * @since 2020/6/4
+ * 版权所有 © Copyright 2012<br>
+ *
+ * @Author： 蒙大拿
+ * @Date：2020/6/4
+ * @Description
+ * @About： https://github.com/DemoMeng
  */
-
 public class DingService {
 
     private final static Logger log = LoggerFactory.getLogger(DingService.class);
