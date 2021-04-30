@@ -19,6 +19,7 @@
         <admin.version>2.1.0</admin.version>
         <admin.ui.version>2.0.2</admin.ui.version>
         <hutool.version>4.5.12</hutool.version>
+        <okhttp.version>4.4.1</okhttp.version>
     </properties>
 
     <dependencies>
@@ -57,6 +58,17 @@
             <version>7.0</version>
         </dependency>
 
+        <!-- Okhttp -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okhttp.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+        </dependency>
 
     </dependencies>
 
