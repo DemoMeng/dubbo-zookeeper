@@ -9,11 +9,21 @@ dubbo:
     address: @zookeeperUrl@
     # 读者请换成自己的zookeeperip
     protocol: zookeeper
-    check: false
+    check: false # 启动时检查 前面两个都是指订阅成功，但提供者列表是否为空是否报错，如果注册订阅失败时，也允许启动，需使用此选项，将在后台定时重试。
   monitor:
     protocol: register
   consumer:
-    check:  false
+    check:  false # 启动时检查
     timeout: 3000
   protocol:
     name: dubbo # java.lang.IllegalStateException: Invalid name="org.apache.dubbo.config.ApplicationConfig#0" contains illegal character, only digit, letter, '-', '_' or '.' is legal.
+    #dispatcher: all
+
+# 线程模型： 参考： https://dubbo.apache.org/zh/docs/v2.7/user/examples/thread-model/
+#  dubbo.protocol.dispatcher =
+#      all 所有消息都派发到线程池，包括请求，响应，连接事件，断开事件，心跳等。
+#      direct 所有消息都不派发到线程池，全部在 IO 线程上直接执行。
+#      message 只有请求响应消息派发到线程池，其它连接断开事件，心跳等消息，直接在 IO 线程上执行。
+#      execution 只有请求消息派发到线程池，不含响应，响应和其它连接断开事件，心跳等消息，直接在 IO 线程上执行。
+#      connection 在 IO 线程上，将连接断开事件放入队列，有序逐个执行，其它消息派发到线程池。
+

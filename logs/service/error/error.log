@@ -1,10 +1,96 @@
-2021-04-29 15:08:51 ERROR main-EventThread org.apache.curator.framework.recipes.cache.TreeCache 
-java.lang.IllegalStateException: instance must be started before calling this method
-	at org.apache.curator.shaded.com.google.common.base.Preconditions.checkState(Preconditions.java:444)
-	at org.apache.curator.framework.imps.CuratorFrameworkImpl.getChildren(CuratorFrameworkImpl.java:456)
-	at org.apache.curator.framework.recipes.cache.TreeCache$TreeNode.doRefreshChildren(TreeCache.java:261)
-	at org.apache.curator.framework.recipes.cache.TreeCache$TreeNode.refreshChildren(TreeCache.java:247)
-	at org.apache.curator.framework.recipes.cache.TreeCache$TreeNode.process(TreeCache.java:352)
-	at org.apache.curator.framework.imps.NamespaceWatcher.process(NamespaceWatcher.java:77)
-	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:535)
-	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:510)
+2021-05-06 12:56:35 ERROR Curator-Framework-0 org.apache.curator.framework.imps.CuratorFrameworkImpl Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:102)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:844)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:972)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:925)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:73)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:322)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2021-05-06 12:56:35 ERROR Curator-Framework-0 org.apache.curator.framework.imps.CuratorFrameworkImpl Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:954)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:925)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:73)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:322)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2021-05-06 15:10:46 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:47 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:48 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:49 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:51 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:52 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:53 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:54 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:55 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:56 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:57 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:10:58 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:01 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:02 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:03 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:04 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:05 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:06 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:07 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:08 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:09 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:10 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:12 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:13 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:14 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:15 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:16 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:17 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:18 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:19 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:20 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:22 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:23 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:24 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:25 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:26 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:27 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:28 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:29 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:30 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:32 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:33 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:34 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:35 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:36 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:37 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:38 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:39 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:40 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:41 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:43 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:44 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:45 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:46 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:47 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:48 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:49 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:50 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:51 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:53 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:54 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:55 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:56 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:57 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:58 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:12:59 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:13:00 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181
+2021-05-06 15:13:01 ERROR main-SendThread(192.168.2.11:2181) org.apache.zookeeper.ClientCnxnSocketNIO Unable to open socket to 192.168.2.11/192.168.2.11:2181

@@ -13,7 +13,7 @@ import java.util.Map;
  * 版权所有 © Copyright 2012<br>
  *
  * @Author： 蒙大拿
- * @Date：${DATE} ${TIME}
+ * @Date：2021-05-06
  * @Description
  * @About： https://github.com/DemoMeng
  */
@@ -39,7 +39,6 @@ public class SelfNotify extends AbstractStatusChangeNotifier {
         str.append("【详情】:" + JSONUtil.toJsonStr(details));
         return Mono.fromRunnable(() -> {
             //TODO 通知处理， 钉钉，邮件，短信
-
         });
     }
 }

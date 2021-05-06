@@ -1,4 +1,4 @@
-package com.mqz.provider.service.impl;
+package com.mqz.provider.service.impl.system;
 
 import com.mqz.api.service.system.MQZUserService;
 import lombok.extern.slf4j.Slf4j;
