@@ -29,7 +29,7 @@ public class HeadThreadLocalInterceptor implements HandlerInterceptor {
 
 
     /**
-     *  TODO 解决方式把业务线放到 request OR ThreadLocal中
+     *  TODO 解决方式把业务线放到 request OR ThreadLocal中 或者 RpcContext中
      *  注意 ： 使用ThreadLocal要在thread结束之后销毁否则大概率出现内存泄漏！
      *  request用不了（dubbo中，也不能作为参数传到service因为无法序列化！！）
      */
