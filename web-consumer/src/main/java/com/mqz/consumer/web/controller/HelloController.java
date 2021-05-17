@@ -1,12 +1,14 @@
 package com.mqz.consumer.web.controller;
 
 import com.mqz.api.service.annotations.ThreadLocalNeed;
+import com.mqz.api.service.constants.CommonConstant;
 import com.mqz.api.service.model.dto.ParamCheckDTO;
 import com.mqz.api.service.response.ResponseBean;
 import com.mqz.api.service.system.LoadBalanceService;
 import com.mqz.api.service.system.MQZUserService;
 import com.mqz.api.service.system.ParamCheckService;
 import com.mqz.api.service.system.ParamCheckService2;
+import com.mqz.consumer.web.config.thread.LocalContext;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -100,8 +102,8 @@ public class HelloController {
     @ApiOperation(value = "头部拦截")
     @ThreadLocalNeed()
     public ResponseBean head(){
-
-        return ResponseBean.SUCCESS();
+        String head = LocalContext.get(CommonConstant.REQUEST_HEAD_NAME_B_O);
+        return ResponseBean.SUCCESS("your request head is :"+head);
     }
 
 
