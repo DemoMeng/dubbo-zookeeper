@@ -1,5 +1,6 @@
 package com.mqz.consumer.web.controller;
 
+import com.mqz.api.service.annotations.ThreadLocalNeed;
 import com.mqz.api.service.model.dto.ParamCheckDTO;
 import com.mqz.api.service.response.ResponseBean;
 import com.mqz.api.service.system.LoadBalanceService;
@@ -10,6 +11,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.rpc.service.GenericService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -92,6 +94,16 @@ public class HelloController {
         paramCheckService2.check2(dto);
         return ResponseBean.SUCCESS("校验2");
     }
+
+
+    @GetMapping(value = "/head")
+    @ApiOperation(value = "头部拦截")
+    @ThreadLocalNeed()
+    public ResponseBean head(){
+
+        return ResponseBean.SUCCESS();
+    }
+
 
 
 }

@@ -435,3 +435,13 @@ java.lang.IllegalStateException: instance must be started before calling this me
 2021-05-06 17:53:01 ERROR http-nio-3001-exec-5 com.mqz.consumer.web.config.exception.GlobalException Failed to validate service: com.mqz.api.service.system.ParamCheckService, method: check1, cause: [ConstraintViolationImpl{interpolatedMessage='name不得为空', propertyPath=name, rootBeanClass=class com.mqz.api.service.model.dto.ParamCheckDTO, messageTemplate='name不得为空'}, ConstraintViolationImpl{interpolatedMessage='sex最大不能大于2', propertyPath=sex, rootBeanClass=class com.mqz.api.service.model.dto.ParamCheckDTO, messageTemplate='sex最大不能大于2'}]
 2021-05-06 17:53:07 ERROR http-nio-3001-exec-7 com.mqz.consumer.web.config.exception.GlobalException 异常
 2021-05-06 17:53:44 ERROR http-nio-3001-exec-8 com.mqz.consumer.web.config.exception.GlobalException 异常
+2021-05-06 18:01:57 ERROR main-EventThread org.apache.curator.framework.recipes.cache.TreeCache 
+java.lang.IllegalStateException: instance must be started before calling this method
+	at org.apache.curator.shaded.com.google.common.base.Preconditions.checkState(Preconditions.java:444)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.getChildren(CuratorFrameworkImpl.java:456)
+	at org.apache.curator.framework.recipes.cache.TreeCache$TreeNode.doRefreshChildren(TreeCache.java:261)
+	at org.apache.curator.framework.recipes.cache.TreeCache$TreeNode.refreshChildren(TreeCache.java:247)
+	at org.apache.curator.framework.recipes.cache.TreeCache$TreeNode.process(TreeCache.java:352)
+	at org.apache.curator.framework.imps.NamespaceWatcher.process(NamespaceWatcher.java:77)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:535)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:510)

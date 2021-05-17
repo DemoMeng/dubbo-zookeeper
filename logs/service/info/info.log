@@ -963,3 +963,8 @@ org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionL
 2021-05-06 17:49:28 INFO  main-EventThread org.apache.curator.framework.imps.EnsembleTracker New config event received: {}
 2021-05-06 17:50:06 INFO  main com.mqz.provider.ServiceProviderApplication Started ServiceProviderApplication in 76.46 seconds (JVM running for 82.005)
 2021-05-06 17:50:06 INFO  pool-1-thread-1 org.apache.dubbo.spring.boot.context.event.AwaitingNonWebApplicationListener  [Dubbo] Current Spring Boot Application is await...
+2021-05-06 18:01:56 INFO  DubboShutdownHook org.apache.dubbo.spring.boot.context.event.AwaitingNonWebApplicationListener  [Dubbo] Current Spring Boot Application is about to shutdown...
+2021-05-06 18:01:57 INFO  Curator-Framework-0 org.apache.curator.framework.imps.CuratorFrameworkImpl backgroundOperationsLoop exiting
+2021-05-06 18:01:57 INFO  Thread-57 org.apache.zookeeper.ZooKeeper Session: 0x102374af02b00bc closed
+2021-05-06 18:01:57 INFO  main-EventThread org.apache.zookeeper.ClientCnxn EventThread shut down for session: 0x102374af02b00bc
+2021-05-06 18:02:01 INFO  Thread-57 org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!

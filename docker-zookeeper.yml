@@ -1,0 +1,16 @@
+version: '2'
+services:
+  zookeeper:
+    image: zookeeper:3.5
+    container_name: zookeeper-by-compose
+    restart: always
+    hostname: zookeeper
+    ports:
+      - "2181:2181"
+    volumes:
+      - /usr/mqz/zookeeper/workdir/data:/data
+      - /usr/mqz/zookeeper/workdir/conf:/conf
+
+
+# docker pull zookeeper:3.5
+# docker compose -f docker-zookeeper.yml up -d

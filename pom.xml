@@ -25,6 +25,7 @@
         <java.version>1.8</java.version>
         <admin.version>2.1.0</admin.version>
         <admin.ui.version>2.0.2</admin.ui.version>
+        <hutool.version>4.5.12</hutool.version>
     </properties>
     <dependencies>
 
@@ -87,6 +88,12 @@
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
             <version>4.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
 
 
