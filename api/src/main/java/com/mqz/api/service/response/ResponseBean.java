@@ -48,13 +48,6 @@ public class ResponseBean<T> implements Serializable {
         return re;
     }
 
-    public static ResponseBean SUCCESS(String msg) {
-        ResponseBean re = new ResponseBean()
-                .setCode(ResponseEnum.SUCCESS.getCode())
-                .setMsg(ResponseEnum.SUCCESS.getMsg());
-        return re;
-    }
-
 
     public static ResponseBean SUCCESS() {
         ResponseBean re = new ResponseBean()
@@ -78,14 +71,6 @@ public class ResponseBean<T> implements Serializable {
                 .setData(obj);
         return re;
     }
-
-    public static ResponseBean ERROR(String msg) {
-        ResponseBean re = new ResponseBean()
-                .setCode(ResponseEnum.ERROR.getCode())
-                .setMsg(msg);
-        return re;
-    }
-
 
 
 }

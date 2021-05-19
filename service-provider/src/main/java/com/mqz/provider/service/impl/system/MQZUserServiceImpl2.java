@@ -3,6 +3,7 @@ package com.mqz.provider.service.impl.system;
 import com.mqz.api.service.system.MQZUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.RpcContext;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ import java.util.Map;
  * @Description
  * @About： https://github.com/DemoMeng
  */
-@DubboService(version = "0.2")
+@DubboService(version = "0.2") //指定版本调用具体的ServiceImpl
 @Slf4j
 public class MQZUserServiceImpl2 implements MQZUserService {
     @Override
@@ -29,5 +30,17 @@ public class MQZUserServiceImpl2 implements MQZUserService {
         List<Map<String,Object>> list = new ArrayList<>();
         list.add(map);
         return list;
+    }
+
+
+    @Override
+    public String rpcContextGetValue() {
+        System.out.println("MQZUserServiceImpl --- verison 0.2");
+        String result = RpcContext.getContext().getAttachment("rpc-name");
+        Object[] arguments = RpcContext.getContext().getArguments();
+        for(Object o:arguments){
+            System.out.println("o:"+o.toString());
+        }
+        return result;
     }
 }

@@ -1,5 +1,6 @@
 package com.mqz.consumer.web.config.thread;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -12,19 +13,23 @@ import java.util.Map;
  */
 public class LocalContext{
 
-    private static ThreadLocal<Map<String,Object>> threadLocal = new ThreadLocal<>();
+    private static ThreadLocal<Map<String,Object>> threadLocal = new ThreadLocal(){
+        @Override
+        protected Object initialValue() {
+            return new HashMap<String,Object>();
+        }
+    };
 
-    static {
-        threadLocal = new ThreadLocal<>();
+    public static void addAll(HashMap<String,Object> parma){
+        threadLocal.get().putAll(parma);
     }
-
 
     public static void add(String key,String value){
         threadLocal.get().put(key,value);
     }
 
     public static String get(String key){
-        return threadLocal.get().get(key) == null?null:(String) threadLocal.get().get("key");
+        return threadLocal.get().get(key) == null?null:(String) threadLocal.get().get(key);
     }
 
     public static void remove(){

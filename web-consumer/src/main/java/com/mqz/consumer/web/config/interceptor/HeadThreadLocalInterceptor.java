@@ -4,6 +4,7 @@ import cn.hutool.json.JSONUtil;
 import com.mqz.api.service.annotations.ThreadLocalNeed;
 import com.mqz.api.service.constants.CommonConstant;
 import com.mqz.consumer.web.config.thread.LocalContext;
+import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -54,6 +55,14 @@ public class HeadThreadLocalInterceptor implements HandlerInterceptor {
                     //TODO 先放到request中
                     //request.setAttribute(CommonConstant.REQUEST_HEAD_NAME_B_O,saleDeptBusiness.getId());
                     LocalContext.add(CommonConstant.REQUEST_HEAD_NAME_B_O,data);
+
+                    //放到RpcContext上下文中，服务方和消费方共同共享，ThreadLocal只对当前程序
+                    //dubbo通过客户端向服务器端传递参数，传递参数时path,group,version,dubbo,token,timeout即key有特殊处理，关键字
+                    //服务方获取 ： RpcContext.getContext().getAttachments();
+                    //消费方传参 ： RpcContext.getContext().setAttachment();
+                    //调接口时，必须是A直接到B，如果A没有直接到B，而是先到C，再由C到B，那么在B里getAttachment()，就获取不到值了。
+                    RpcContext.getContext().setAttachment("rpc-name",data);
+
 //                HashMap<String,Object> hashMap = new HashMap<>();
 //                hashMap.put(CommonConstant.REQUEST_HEAD_NAME_B_O,saleDeptBusiness.getId());
 //                LocalContext.transArguments(hashMap);

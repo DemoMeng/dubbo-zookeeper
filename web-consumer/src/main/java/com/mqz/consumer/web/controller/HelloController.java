@@ -1,12 +1,14 @@
 package com.mqz.consumer.web.controller;
 
 import com.mqz.api.service.annotations.ThreadLocalNeed;
+import com.mqz.api.service.constants.CommonConstant;
 import com.mqz.api.service.model.dto.ParamCheckDTO;
 import com.mqz.api.service.response.ResponseBean;
 import com.mqz.api.service.system.LoadBalanceService;
 import com.mqz.api.service.system.MQZUserService;
 import com.mqz.api.service.system.ParamCheckService;
 import com.mqz.api.service.system.ParamCheckService2;
+import com.mqz.consumer.web.config.thread.LocalContext;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -30,10 +32,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class HelloController {
 
-    @DubboReference(version = "0.1")
+    @DubboReference(version = "0.1") //指定版本调用具体的ServiceImpl
     private MQZUserService mqzUserService;
 
-    @DubboReference(version = "0.2")
+    @DubboReference(version = "0.2") //指定版本调用具体的ServiceImpl
     private MQZUserService mqzUserService2;
 
     @DubboReference(url = "dubbo://192.168.2.11:20880")
@@ -100,8 +102,17 @@ public class HelloController {
     @ApiOperation(value = "头部拦截")
     @ThreadLocalNeed()
     public ResponseBean head(){
+        String result = LocalContext.get(CommonConstant.REQUEST_HEAD_NAME_B_O);
+        System.out.println(result);
+        return ResponseBean.SUCCESS(result);
+    }
 
-        return ResponseBean.SUCCESS();
+    @GetMapping(value = "/head1")
+    @ApiOperation(value = "头部拦截-RpcContext传到Service")
+    @ThreadLocalNeed()
+    public ResponseBean head1(){
+        String result = mqzUserService.rpcContextGetValue();
+        return ResponseBean.SUCCESS(result);
     }
 
 

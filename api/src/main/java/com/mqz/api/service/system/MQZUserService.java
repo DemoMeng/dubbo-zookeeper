@@ -15,4 +15,6 @@ public interface MQZUserService {
 
     List<Map<String,Object>> list();
 
+    String rpcContextGetValue();
+
 }

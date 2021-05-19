@@ -1,6 +1,7 @@
 package com.mqz.consumer.web.config.handler;
 
 import com.mqz.consumer.web.config.interceptor.HeadThreadLocalInterceptor;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @Description
  * @About： https://github.com/DemoMeng
  */
+@Configuration
 public class HandlerInterceptor implements WebMvcConfigurer {
 
     @Override
