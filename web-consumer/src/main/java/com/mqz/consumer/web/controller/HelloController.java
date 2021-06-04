@@ -44,11 +44,7 @@ public class HelloController {
     @DubboReference(url = "dubbo://192.168.5.32:20880")
     private LoadBalanceService loadBalanceService2;
 
-    @DubboReference(url = "dubbo://192.168.5.32:20880",validation = "true") //dubbo调用方开启参数校验，服务提供方也需要
-    private ParamCheckService paramCheckService;
 
-    @DubboReference(url = "dubbo://192.168.5.32:20880")
-    private ParamCheckService2 paramCheckService2;
 
     @GetMapping(value = "/index")
     @ApiOperation(value = "方法1")
@@ -80,22 +76,7 @@ public class HelloController {
     }
 
 
-    @GetMapping(value = "/check")
-    @ApiOperation(value = "参数校验")
-    public ResponseBean check(){
-        ParamCheckDTO dto = new ParamCheckDTO()
-                .setName(null).setSex(20);
-        paramCheckService.check1(dto);
-        return ResponseBean.SUCCESS("校验");
-    }
 
-    @GetMapping(value = "/check2")
-    @ApiOperation(value = "参数校验")
-    public ResponseBean check2(){
-        ParamCheckDTO dto = new ParamCheckDTO().setSex(20).setName(null);
-        paramCheckService2.check2(dto);
-        return ResponseBean.SUCCESS("校验2");
-    }
 
 
     @GetMapping(value = "/head")

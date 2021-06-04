@@ -214,6 +214,7 @@ public class GlobalException {
 
     /**
      * 父级类
+     * 对dubbo官方提供的参数校验方式，抛出的异常进行捕获
      * @param e
      * @return
      */
@@ -222,6 +223,8 @@ public class GlobalException {
     public ResponseBean error(ValidationException e){
         e.printStackTrace();
         logger.error(e.getMessage() == null? EnumExceptions.PARAM_VALID.getMsg() : e.getMessage());
+        //TODO  message： Failed to validate service: com.mqz.api.service.system.ParamCheckService, method: check1, cause: [ConstraintViolationImpl{interpolatedMessage='sex最大不能大于2', propertyPath=sex, rootBeanClass=class com.mqz.api.service.model.dto.ParamCheckDTO, messageTemplate='sex最大不能大于2'}, ConstraintViolationImpl{interpolatedMessage='name不得为空', propertyPath=name, rootBeanClass=class com.mqz.api.service.model.dto.ParamCheckDTO, messageTemplate='name不得为空'}]
+        //TODO 对message进行处理后返回
         return ResponseBean.ERROR(e.getMessage() == null? EnumExceptions.PARAM_VALID.getMsg() : e.getMessage());
     }
 
