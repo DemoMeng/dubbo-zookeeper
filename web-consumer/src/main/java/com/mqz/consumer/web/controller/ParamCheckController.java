@@ -5,7 +5,7 @@ import com.mqz.api.service.response.ResponseBean;
 import com.mqz.api.service.system.ParamCheckService;
 import com.mqz.api.service.system.ParamCheckService2;
 import com.mqz.api.service.system.ParamCheckService3;
-import com.mqz.consumer.web.config.exception.exceptions.ParamValidException;
+import com.mqz.api.service.exceptions.ParamValidException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -69,6 +69,18 @@ public class ParamCheckController {
         }
         paramCheckService3.check3(dto);
         return ResponseBean.SUCCESS("校验2");
+    }
+
+
+
+    /**
+     * 自定义校验工具类实现校验
+     */
+    @PostMapping(value = "/check4")
+    @ApiOperation(value = "参数校验 （自定义校验工具类进行校验，实体还是使用JRS3的注解，其他无需任何配置）")
+    public ResponseBean check4(@RequestBody ParamCheckDTO dto){
+        paramCheckService3.check4(dto);
+        return ResponseBean.SUCCESS();
     }
 
 

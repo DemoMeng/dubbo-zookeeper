@@ -1,4 +1,4 @@
-package com.mqz.consumer.web.config.exception.exceptions;
+package com.mqz.api.service.exceptions;
 
 import lombok.Data;
 

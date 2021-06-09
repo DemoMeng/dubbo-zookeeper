@@ -1,8 +1,8 @@
 package com.mqz.consumer.web.config.exception;
 
 import com.mqz.api.service.enums.EnumExceptions;
+import com.mqz.api.service.exceptions.*;
 import com.mqz.api.service.response.ResponseBean;
-import com.mqz.consumer.web.config.exception.exceptions.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -102,7 +102,6 @@ public class GlobalException {
 
 
     /**
-     * 缺失参数
      * @param e
      * @return
      */
@@ -110,8 +109,8 @@ public class GlobalException {
     @ResponseBody
     public ResponseBean error(MissingServletRequestParameterException e){
         e.printStackTrace();
-        logger.error(EnumExceptions.MISSING_PARAMETER.getMsg());
-        return ResponseBean.ERROR(EnumExceptions.MISSING_PARAMETER.getMsg());
+        logger.error(e.getMessage());
+        return ResponseBean.ERROR(EnumExceptions.EXCEPTION.getMsg());
     }
 
 

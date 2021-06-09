@@ -16,5 +16,7 @@ public interface ParamCheckService3 {
 
     String check3(ParamCheckDTO dto);
 
+    String check4(ParamCheckDTO dto);
+
 
 }
