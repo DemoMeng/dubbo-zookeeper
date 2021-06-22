@@ -28,6 +28,7 @@ public class LocalContext{
         threadLocal.get().put(key,value);
     }
 
+    //类型转换的问题
     public static String get(String key){
         return threadLocal.get().get(key) == null?null:(String) threadLocal.get().get(key);
     }
